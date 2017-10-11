@@ -216,15 +216,6 @@ class SystemModule
 
 	public function checkReady()
 	{
-		//check global info
-		$owner = posix_getgrgid( filegroup( __FILE__ ) );
-		if($owner)
-		{
-			if($owner["name"] != "www-data")
-			{
-				debug("The group of this script is not 'www-data', this could be a problem. Ensure that all files inside this folder belong to the group 'www-data' by running this command from inside the folder: su chown -R :www-data *");
-			}
-		}
 
 		//for every module
 		$modules = loadModules("*");

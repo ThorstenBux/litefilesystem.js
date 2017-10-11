@@ -150,13 +150,6 @@ if(!$console)
 		die($end_string);
 	}
 
-	//test folder owner
-	$owner = posix_getgrgid( filegroup( __FILE__) );
-	if($owner && $owner["name"] != "www-data")
-	{
-		showMessage("The group of this script is not 'www-data', this could be a problem. Ensure that all files inside this folder belong to the www-data by running this command from inside the folder: su chown -R :www-data *","danger");
-	}
-
 	if( $is_ready && !$force )
 	{
 		showMessage("All modules seem ready, nothing to do.","warning");
